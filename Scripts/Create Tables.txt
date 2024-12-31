@@ -1,0 +1,27 @@
+create table musician (id int,name varchar(25),gender Varchar(6), address varchar(40),phone_number int,
+primary key(id));
+
+create table instrument (identifecation_number int,name varchar(25), Musical_key varchar(40),
+primary key(identifecation_number));
+
+create table plays (musician_id int,instrament_identifiecation_number int,
+primary key(musician_id,instrament_identifiecation_number),
+foreign key(musician_id) references musician,
+foreign key(instrament_identifiecation_number) references instrument );
+
+create table album (identifiecation_number int,title varchar(25),copy_right_date date,format varchar(10),musician_id int
+primary key(identifiecation_number)
+foreign key(musician_id) references musician);
+
+create table song(title varchar(25),text varchar(40),author varchar(30),time int,song_album int,
+primary key(title),
+foreign key(song_album) references album);
+
+create table song_singer (song_title varchar(25),singer varchar(25),
+primary key(song_title,singer),
+foreign key(song_title) references song);
+
+create table publish(m_id int,song_title varchar(25),
+primary key(m_id,song_title),
+foreign key(m_id) references musician ,
+foreign key(song_title) references song);

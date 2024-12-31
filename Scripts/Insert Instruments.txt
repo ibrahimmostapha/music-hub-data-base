@@ -1,0 +1,8 @@
+insert into instrument values (2000,'Piano','B-flat');
+insert into instrument values (2001,'Piano','B-flat');
+insert into instrument values (2002,'Guitar','E-flat');
+insert into instrument values (2003,'Cello','C-flat');
+insert into instrument values (2004,'Flute','A-flat');
+insert into instrument values (2005,'Piano','C-flat');
+insert into instrument values (2006,'violin','B-flat');
+insert into instrument values (2007,'violin','D-sharp');

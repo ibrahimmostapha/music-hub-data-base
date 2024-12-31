@@ -1,0 +1,13 @@
+insert into musician values (11111,'Assi El Hallani','male','Lebanon',70787545);
+insert into musician values (11112,'Fairuz','female','Lebanon',03565777);
+insert into musician values (11113,'Ragheb Alama','male','Lebanone',70787898);
+insert into musician values (11114,'Haifa Wehbe','female','Lebanon',78909654);
+insert into musician values (11115,'Nancy Ajram','female','Lebanon',03546987);
+insert into musician values (11116,'Myriam Fares','female','Lebanon',70999575);
+insert into musician values (11117,'Tamer Hosny','male','Eygpt',1121900066);
+insert into musician values (11118,'Shakira','female','Colombia',131440198);
+insert into musician values (11119,'Nicki Minaj','female','Trinidad and Tobago',70785664);
+insert into musician values (11120,'Maluma','male','Colombia',70787545);
+insert into musician values (11121,'Ziad Rahbani','male','Lebanon',70799545);
+insert into musician values (11122,'Adam Levine','male','USA',74833333 );
+insert into musician values (11123,'Jason Derulo','male','USA',73677878);

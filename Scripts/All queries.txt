@@ -1,0 +1,103 @@
+-1-Find for each musician, list the total number of albums
+select name,count(Musician_id) as numberOfAlbums
+from musician,album
+where id=musician_id
+group by name;
+-------------------------------------------------------------------
+
+-2-Find the musicians who have played more than 2 instruments:
+SELECT musician.name
+FROM musician
+JOIN plays ON musician.id = plays.musician_id
+GROUP BY musician.name
+HAVING COUNT(plays.instrament_identifiecation_number) >= 2;
+-------------------------------------------------------------------
+
+-3-Find the total number of songs:
+select count(*) as numberOfSongs
+from song;
+-------------------------------------------------------------------
+
+-4-Find for each album, find the total number of songs:
+select  album.title ,count(song_album)
+from album,song
+where identifiecation_number=song_album
+group by album.title;
+-------------------------------------------------------------------
+
+-5-Find for the Song “” give the name of the musician:
+select name
+from musician,publish
+where song_title='Ahwak' AND id=m_id;
+-------------------------------------------------------------------
+
+-6-List only the songs with at least 2 musician singing:
+select title
+from song
+where(select count(*)
+from song_singer
+where title=song_title)>=2;
+-------------------------------------------------------------------
+
+-7-List the name of the producer having the highest number of albums:
+SELECT m.name
+FROM musician m
+WHERE m.id = (
+    SELECT a.musician_id
+    FROM album a
+    GROUP BY a.musician_id
+    HAVING COUNT(*) = (
+        SELECT MAX(album_count)
+        FROM (
+            SELECT COUNT(*) AS album_count
+            FROM album
+            GROUP BY musician_id
+        ) AS subquery
+    )
+);
+-------------------------------------------------------------------
+
+-8-Find the albums that were published after the year 2006 and have the format "CD":
+SELECT title
+FROM album
+WHERE copy_right_date > '1/1/2006'
+intersect
+select title
+from album where format=' CD '
+-------------------------------------------------------------------
+
+-9-Find the musicians who have played instruments in the key of "A-flat" and are male:
+SELECT name
+FROM musician
+WHERE id IN (
+    SELECT musician_id
+    FROM plays
+    WHERE instrament_identifiecation_number IN (
+        SELECT identifecation_number
+        FROM instrument
+        WHERE Musical_key = 'A-flat'
+    )
+) AND gender = 'Male';
+-------------------------------------------------------------------
+
+-10-Find the songs that have a duration longer than 5 minutes:
+SELECT title
+FROM song
+WHERE time > 5;
+-------------------------------------------------------------------
+
+-11-Find the musicians who have played instruments and also published songs:
+SELECT distinct musician.name
+FROM musician
+JOIN plays ON musician.id = plays.musician_id
+JOIN publish ON musician.id = publish.m_id;
+-------------------------------------------------------------------
+-12-Find the albums with more than 2 songs:
+SELECT album.title
+FROM album
+JOIN song ON album.identifiecation_number = song.song_album
+GROUP BY album.title
+HAVING COUNT(song.title) >= 3;
+
+
+
